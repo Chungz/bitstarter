@@ -3,6 +3,8 @@ var fs = require('fs');
 
 var app = express.createServer(express.logger());
 
+app.use('/public', express.static(__dirname + "/public"));
+
 app.get('/', function(request, response) {
     var index = fs.readFileSync('index.html').toString();
     response.send(index);
